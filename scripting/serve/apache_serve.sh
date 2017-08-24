@@ -8,8 +8,8 @@ package_name=$(echo "apache"$ver)
 
 install_server() {
 	echo "Installing $package_name..."
-	sudo apt-get update >> /dev/null
-	sudo apt-get install $(echo $package_name) -y >> /dev/null || { echo "Could not install $package_name Server"; exit 1; }
+	sudo apt-get update > /dev/null 2&1
+	sudo apt-get install $(echo $package_name) -y > /dev/null 2&1 || { echo "Could not install $package_name Server"; exit 1; }
 	echo "Installed Succussfully"
 	# exit 0
 }
@@ -31,8 +31,8 @@ terminate_server() {
 remove_server() {
 	terminate_server
 	echo "Removing $package_name..."
-	sudo apt-get purge $package_name $(echo $package_name"-utils") -y >> /dev/null || { echo "Could not remove $package_name completely an error occured"; exit 1; }
-	sudo apt-get autoremove -y >> /dev/null
+	sudo apt-get purge $package_name $(echo $package_name"-utils") -y >> /dev/null 2&1 || { echo "Could not remove $package_name completely an error occured"; exit 1; }
+	sudo apt-get autoremove -y > /dev/null 2&1
 	echo "Removed $package_name Successfully"
 	# exit 0
 }

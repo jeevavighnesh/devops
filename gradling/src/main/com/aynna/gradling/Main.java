@@ -8,7 +8,10 @@ public class Main {
   public static void main(String[] args) {
       int buf =0;
       StringBuffer stringBuffer = new StringBuffer();
-      String command = "/C:\\Users\\Revature\\Documents\\Vighnesh\\devops\\batching\\apache_serve.bat";
+      final String flag = "s";
+      String command = "/home/vighnesh/Documents/devops/scripting/serve/tomcat_server.sh -" + flag;
+//      String command = "/home/vighnesh/Documents/devops/scripting/serve/apache_serve.sh -" + flag;
+//      String command = "//Documents/devops/scripting/serve/tomcat_server.sh";
 
     try {
       Process process = Runtime.getRuntime().exec(command);
