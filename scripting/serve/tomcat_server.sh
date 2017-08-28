@@ -1,7 +1,7 @@
 #/bin/bash
 
-# This is a script to install and startup an apache server
-# at port 80
+# This is a script to install and startup an tomcat server
+# at port 8080
 
 ver=8
 package_name=$(echo "tomcat"$ver)
