@@ -9,7 +9,7 @@ package_name=$(echo "apache"$ver)
 install_server() {
 	echo "Installing $package_name..."
 	sudo apt-get update
-	sudo apt-get install $(echo $package_name) -y || { echo "Could not install $package_name Server"; exit 1; }
+	sudo apt-get install $package_name -y || { echo "Could not install $package_name Server"; exit 1; }
 	echo "Installed Succussfully"
 	echo "You can see your success message at http://localhost:80"
 	# exit 0
@@ -43,12 +43,14 @@ usage() {
 	echo "Usage: $0 [-i or -r or -s or -t]"; exit 1;
 }
 
-while getopts ":irst" o
-do	case $o in
-	i)	install_server;;
-	r)	remove_server;;
-	s)	start_server;;
-	t)	terminate_server;;
+for (( ; ; ))
+do	
+	getopts ":irst" o
+	case $o in
+	i)	install_server;exit 0;;
+	r)	remove_server;exit 0;;
+	s)	start_server;exit 0;;
+	t)	terminate_server;exit 0;;
 	*)	usage;;
 	esac
 done
