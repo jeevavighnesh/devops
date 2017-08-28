@@ -1,13 +1,19 @@
 task hello << {
-    println "Hello mama"
+    def a ="Hello"
+    println "Hello mama" + a
 }
 
  apply plugin: 'java'
 
- /**
-  * Changing the project layout
-  * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#N11E14
-  */
+class Student{
+    private String name = "Vikki";
+}
+
+task student << {
+    Student student = new Student()
+    println("Name" + student.name)
+}
+
  sourceSets {
      main.java.srcDir "src/main"
      test.java.srcDir "src/test"
