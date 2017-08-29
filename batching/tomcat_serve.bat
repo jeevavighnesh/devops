@@ -14,30 +14,30 @@ if "%1"=="stop" (
 if "%1"=="uninstall" (
   call :Uninstall
   EXIT /B %errorlevel%
-) else (
+) ELSE (
   echo incorrect usage
   EXIT /B %errorlevel%
 )
 
 :Uninstall
-echo Terminating apache
-net stop apache
-echo Removing apache server
-choco uninstall apache-httpd -y
-echo Successfully removed apache server
+echo Terminating tomcat
+net stop tomcat8
+echo Removing tomcat server
+choco uninstall tomcat -y
+echo Successfully removed tomcat server
 EXIT /b 0
 
 :Start
-echo Starting Apache server
-net start apache
+echo Starting tomcat server
+net start tomcat8
 EXIT /B 0
 
 :Stop
-echo Stoping Apache server
-net stop apache
+echo Stoping tomcat server
+net stop tomcat8
 EXIT /B 0
 
 :Install
-echo Installing Apache Server...
-choco install apache-httpd -y
+echo Installing tomcat Server...
+choco install tomcat -y
 EXIT /B 0

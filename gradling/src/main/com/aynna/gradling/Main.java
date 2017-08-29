@@ -11,10 +11,10 @@ public class Main {
       String buf = "";
       StringBuffer stringBuffer = new StringBuffer();
       final String flag = "i";
-      String username = "vikki";
+      String username = "Revature";
 //      String command = "bash /home/" + username + "/Documents/devops/scripting/serve/tomcat_server.sh -" + flag;
-      String command = "sudo bash /home/" + username + "/Documents/devops/scripting/serve/apache_serve.sh -" + flag;
-//      String command = "C:\\Users\\Admin\\Documents\\WindowsPowerShell\\devops\\batching\\apache_serve.bat start";
+//      String command = "sudo bash /home/" + username + "/Documents/devops/scripting/serve/apache_serve.sh -" + flag;
+      String command = "cmd C:\\Users\\" + username + "\\Documents\\Vighnesh\\devops\\batching\\tomcat_serve.bat install";
 
     try {
       Process process = Runtime.getRuntime().exec(command);
@@ -24,9 +24,7 @@ public class Main {
           stringBuffer.append(buf + "\n");
       }
         System.out.println("Response: " + stringBuffer.toString());
-    } catch (IOException e) {
-        e.printStackTrace();
-    } catch (InterruptedException e) {
+    } catch (IOException | InterruptedException e) {
         e.printStackTrace();
     }
 
