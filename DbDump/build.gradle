@@ -1,0 +1,13 @@
+task backupdb(type: Exec) {
+  // commandLine 'mysqldump', 'BLOG', '-u root', '-C'
+  commandLine 'echo hai'
+
+  doFirst {
+     standardOutput new FileOutputStream("${buildDir}/runIt.out")
+  }
+}
+
+// task restoreBackup(type: Exec) {
+//  commandLine mysql, '-uroot', '-ppwd', '-q', '-BLOG'
+//  standardInput file("db_dump.sql").newInputStream()
+// }
