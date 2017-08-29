@@ -1,7 +1,8 @@
 task backupdb(type: Exec) {
   // C:\Program^ Files\MySQL\MySQL^ Server^ 5.7\bin\mysqldump -uroot -ppass123$ jsftest --result-file=BLOG.sql
    // commandLine 'cmd /c C:\\Program^ Files\\MySQL\\MySQL^ Server^ 5.7\\bin\\mysqldump jsftest -uroot -ppass123$ --result-file=jsftest_dump.sql'
-   commandLine 'mysqldump', 'jsftest', '-uroot', '-pquarter#9112', '--result-file=jsftest_dump.sql'
+   String password ='';
+   commandLine 'mysqldump', 'jsftest', '-uroot', '-p' + password, '--result-file=jsftest_dump.sql'
 //  commandLine 'echo hai'
 
 //  doFirst {
