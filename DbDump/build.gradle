@@ -1,10 +1,11 @@
 task backupdb(type: Exec) {
-  // commandLine 'mysqldump', 'BLOG', '-u root', '-C'
-  commandLine 'echo hai'
+  // C:\Program^ Files\MySQL\MySQL^ Server^ 5.7\bin\mysqldump -uroot -ppass123$ jsftest --result-file=BLOG.sql
+   commandLine 'cmd /c C:\\Program^ Files\\MySQL\\MySQL^ Server^ 5.7\\bin\\mysqldump jsftest -uroot -ppass123$ --result-file=jsftest_dump.sql'
+//  commandLine 'echo hai'
 
-  doFirst {
-     standardOutput new FileOutputStream("${buildDir}/runIt.out")
-  }
+//  doFirst {
+//     standardOutput new FileOutputStream("${buildDir}/runIt.out")
+//  }
 }
 
 // task restoreBackup(type: Exec) {
