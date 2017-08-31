@@ -8,3 +8,4 @@ files/
 *.classpath
 *.project
 *.settings
+*.sql
