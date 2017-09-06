@@ -24,7 +24,7 @@ download_tomcat() {
 extract_tomcat() {
 	sudo tar -zxvf apache-tomcat-8.5.20.tar.gz -C /opt/tomcat --strip-components=1
 	cd -
-	sudo rm apache-tomcat-8.5.20.tar.gz -y
+	sudo rm apache-tomcat-8.5.20.tar.gz
 }
 
 set_permissions() {
