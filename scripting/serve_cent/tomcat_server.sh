@@ -60,12 +60,13 @@ register_tomcat_service() {
 
 install_server() {
 	echo "Installing $package_name..."
+	echo $PWD
 	update_repository
+	create_systemservice
 	create_tomcat_user
 	download_tomcat
 	extract_tomcat
 	set_permissions
-	create_systemservice
 	register_tomcat_service
 	configure_firewall
 	echo "Installed Succussfully"
