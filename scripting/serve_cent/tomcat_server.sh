@@ -38,6 +38,7 @@ set_permissions() {
 }
 
 create_systemservice() {
+	echo $PWD
 	sudo cp tomcat.service /etc/systemd/system/
 }
 
