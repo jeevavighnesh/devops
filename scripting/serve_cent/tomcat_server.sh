@@ -23,6 +23,8 @@ download_tomcat() {
 
 extract_tomcat() {
 	sudo tar -zxvf apache-tomcat-8.5.20.tar.gz -C /opt/tomcat --strip-components=1
+	cd -
+	sudo rm apache-tomcat-8.5.20.tar.gz -y
 }
 
 set_permissions() {
@@ -62,11 +64,12 @@ install_server() {
 	echo "Installing $package_name..."
 	echo $PWD
 	update_repository
-	create_systemservice
 	create_tomcat_user
 	download_tomcat
 	extract_tomcat
+	echo $PWD
 	set_permissions
+	create_systemservice
 	register_tomcat_service
 	configure_firewall
 	echo "Installed Succussfully"
@@ -74,12 +77,21 @@ install_server() {
 	# exit 0
 }
 
+remove_service() {
+	sudo systemctl stop tomcat
+	sudo systemctl disable tomcat
+	sudo rm /etc/systemd/system/tomcat.service
+	sudo systemctl daemon-reload
+	sudo systemctl reset-failed
+}
+
 remove_server() {
 	terminate_server
 	echo "Removing $package_name..."
-	sudo apt-get purge $package_name -y || { echo "Could not remove $package_name completely an error occured"; exit 1; }
-	sudo apt-get remove $package_name -y
-	sudo apt-get autoremove -y
+	remove_service
+	sudo rm -rf /opt/tomcat
+	sudo userdel -r tomcat
+	sudo groupdel tomcat
 	echo "Removed $package_name Successfully"
 	# exit 0
 }
